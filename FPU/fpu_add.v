@@ -57,6 +57,7 @@ module fpu_add #(parameter
           new_exp = (exp_a_gt_exp_b) ? exp_a : exp_b;
       end
       //Normalize after
+      
   end
 
   assign result = {new_sign_bit, new_exp, diff_mantissa[mantissa-1:0]};
