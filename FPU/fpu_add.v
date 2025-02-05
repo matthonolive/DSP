@@ -19,18 +19,31 @@ module fpu_add #(parameter
 
   wire sign_a;
   wire [exponent-1:0] exp_a;
-  wire [mantissa-1:0] frac_a;
+  wire [mantissa:0] frac_a;
 
   wire sign_b;
   wire [exponent-1:0] exp_b;
-  wire [mantissa-1:0] frab_b;
+  wire [mantissa:0] frac_b;
 
   assign sign_a = a[size-1];
   assign sign_b = b[size-1];
   assign exp_a = a[size-2:size-2-exponent + 1];
-  assign exp_b = a[size-2:size-2-exponent + 1];
-  assign frac_a = a[size-2-exponent:0];
-  assign frac_b = a[size-2-exponent:0];
+  assign exp_b = b[size-2:size-2-exponent + 1];
+  assign frac_a = {1'b1, a[size-2-exponent:0]};
+  assign frac_b = {1'b1, b[size-2-exponent:0]};
 
-  assign result = frac_a;
+  reg [exponent - 1:0] exp_diff;
+  reg [mantissa + 1: 0] aligned_frac_a;
+  reg [mantissa + 1 : 0] aligned_frac_b;
+
+  wire exp_a_gt_exp_b;
+  assign exp_a_gt_exp_b = (exp_a > exp_b);
+
+  always @(*) begin
+      exp_diff = (exp_a_gt_exp_b) ? (exp_a - exp_b) : (exp_b - exp_a);
+      aligned_frac_a = (exp_a_gt_exp_b) ? {1'b0, frac_a} : ({1'b0, frac_a} >> exp_diff);
+      aligned_frac_b = (exp_a_gt_exp_b) ? ({1'b0, frac_b} >> exp_diff) : {1'b0, frac_b};
+  end
+
+  assign result = exp_diff;
 endmodule
