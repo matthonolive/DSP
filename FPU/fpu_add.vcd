@@ -1,5 +1,5 @@
 $date
-	Wed Feb 05 14:53:49 2025
+	Wed Feb 05 15:38:48 2025
 $end
 $version
 	Icarus Verilog
@@ -30,7 +30,10 @@ $var parameter 32 1 mantissa $end
 $var parameter 32 2 size $end
 $var reg 25 3 aligned_frac_a [24:0] $end
 $var reg 25 4 aligned_frac_b [24:0] $end
-$var reg 8 5 exp_diff [7:0] $end
+$var reg 25 5 diff_mantissa [24:0] $end
+$var reg 8 6 exp_diff [7:0] $end
+$var reg 8 7 new_exp [7:0] $end
+$var reg 1 8 new_sign_bit $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -43,6 +46,9 @@ b0 /
 $end
 #0
 $dumpvars
+x8
+bx 7
+bx 6
 bx 5
 bx 4
 bx 3
@@ -51,31 +57,34 @@ x-
 bx ,
 b1xxxxxxxxxxxxxxxxxxxxxxx +
 b1xxxxxxxxxxxxxxxxxxxxxxx *
-b0xxxxxxxx )
+bx )
 x(
 x'
 bx &
 bx %
 bx $
 bx #
-b0xxxxxxxx "
+bx "
 z!
 $end
 #5000
-b11000000000000000000 4
-b110000000000000000000000 3
-b100 "
-b100 )
-b100 5
+b1111111 7
+b111111100000000000000000000000 "
+b111111100000000000000000000000 )
+08
+b100000000000000000000000 5
+b100000000000000000000000 4
+b100000000000000000000000 3
+b0 6
 0'
-1-
-b1 ,
-b110000000000000000000000 *
+0-
+b1111111 ,
+b100000000000000000000000 *
 0(
-b101 .
-b110000000000000000000000 +
-b110000000000000000000000 $
-b110000000000000000000000 &
-b10110000000000000000000000 #
-b10110000000000000000000000 %
+b1111111 .
+b100000000000000000000000 +
+b111111100000000000000000000000 $
+b111111100000000000000000000000 &
+b111111100000000000000000000000 #
+b111111100000000000000000000000 %
 #15000

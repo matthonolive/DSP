@@ -39,11 +39,26 @@ module fpu_add #(parameter
   wire exp_a_gt_exp_b;
   assign exp_a_gt_exp_b = (exp_a > exp_b);
 
+  reg [mantissa + 1: 0] diff_mantissa;
+  reg new_sign_bit;
+  reg [exponent - 1:0] new_exp;
+
   always @(*) begin
       exp_diff = (exp_a_gt_exp_b) ? (exp_a - exp_b) : (exp_b - exp_a);
       aligned_frac_a = (exp_a_gt_exp_b) ? {1'b0, frac_a} : ({1'b0, frac_a} >> exp_diff);
       aligned_frac_b = (exp_a_gt_exp_b) ? ({1'b0, frac_b} >> exp_diff) : {1'b0, frac_b};
+      if (sign_a == sign_b) begin
+        diff_mantissa = aligned_frac_a + aligned_frac_b;
+        new_sign_bit = (sign_a == 0) ? 0: 1;
+        new_exp = (exp_a_gt_exp_b) ? exp_a : exp_b;
+      end else begin
+          diff_mantissa = (aligned_frac_a > aligned_frac_b) ? (aligned_frac_a - aligned_frac_b) :  (aligned_frac_b - aligned_frac_a);
+          new_sign_bit = (((aligned_frac_a > aligned_frac_b ) & sign_a) | ((aligned_frac_b > aligned_frac_a ) & sign_b)) ? 1 : 0;
+          new_exp = (exp_a_gt_exp_b) ? exp_a : exp_b;
+      end
+      //Normalize after
   end
 
-  assign result = exp_diff;
+  assign result = {new_sign_bit, new_exp, diff_mantissa[mantissa-1:0]};
+
 endmodule
