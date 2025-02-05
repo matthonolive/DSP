@@ -1,0 +1,5 @@
+iverilog -o my_simulation my_design.v tb_my_design.v
+
+vvp my_simulation
+
+gtkwave waveform.vcd

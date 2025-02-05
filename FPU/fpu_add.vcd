@@ -1,0 +1,90 @@
+$date
+	Wed Feb 05 12:35:17 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_fpu_add $end
+$var wire 1 ! exception $end
+$var wire 32 " result [31:0] $end
+$var reg 32 # a [31:0] $end
+$var reg 32 $ b [31:0] $end
+$scope module dut $end
+$var wire 32 % a [31:0] $end
+$var wire 32 & b [31:0] $end
+$var wire 1 ! exception $end
+$var wire 1 ' sign_b $end
+$var wire 1 ( sign_a $end
+$var wire 32 ) result [31:0] $end
+$var wire 1 * frac_b $end
+$var wire 23 + frac_a [22:0] $end
+$var wire 8 , exp_b [7:0] $end
+$var wire 8 - exp_a [7:0] $end
+$var parameter 32 . double $end
+$var parameter 32 / exponent $end
+$var parameter 32 0 mantissa $end
+$var parameter 32 1 size $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100000 1
+b10111 0
+b1000 /
+b0 .
+$end
+#0
+$dumpvars
+bx -
+bx ,
+bx +
+x*
+b0xxxxxxxxxxxxxxxxxxxxxxx )
+x(
+x'
+bx &
+bx %
+bx $
+bx #
+b0xxxxxxxxxxxxxxxxxxxxxxx "
+z!
+$end
+#5000
+0*
+0'
+0(
+b1111111 -
+b1111111 ,
+b0 "
+b0 )
+b0 +
+b111111100000000000000000000000 $
+b111111100000000000000000000000 &
+b111111100000000000000000000000 #
+b111111100000000000000000000000 %
+#15000
+b10000000 -
+b10000000 ,
+b1000000010000000000000000000000 $
+b1000000010000000000000000000000 &
+b1000000000000000000000000000000 #
+b1000000000000000000000000000000 %
+#25000
+1(
+b1111111 -
+b1111111 ,
+b111111100000000000000000000000 $
+b111111100000000000000000000000 &
+b10111111100000000000000000000000 #
+b10111111100000000000000000000000 %
+#35000
+0(
+b11111111 -
+b11111111 ,
+b1111111100000000000000000000000 #
+b1111111100000000000000000000000 %
+#45000
