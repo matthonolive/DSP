@@ -26,8 +26,8 @@ module tb_comp_add;
 
     // Test Vector 1: 1.0 + 0
     // In IEEE754 single precision, 1.0 is 0x3f800000.
-    a = 64'h3ff0000000000000;
-    b = 64'h0000000000000000;
+    a = 64'h3dcccccd3dcccccd;
+    b = 64'h3dcccccd3dcccccd;
     #10;
 
 

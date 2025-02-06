@@ -1,0 +1,180 @@
+$date
+	Thu Feb 06 16:18:36 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_comp_add $end
+$var wire 64 ! result [63:0] $end
+$var reg 64 " a [63:0] $end
+$var reg 64 # b [63:0] $end
+$scope module dut $end
+$var wire 64 $ a [63:0] $end
+$var wire 64 % b [63:0] $end
+$var wire 64 & result [63:0] $end
+$var wire 32 ' r [31:0] $end
+$var wire 32 ( q [31:0] $end
+$var parameter 32 ) double $end
+$var parameter 32 * size $end
+$scope module complex_inst $end
+$var wire 32 + a [31:0] $end
+$var wire 32 , b [31:0] $end
+$var wire 1 - sign_b $end
+$var wire 1 . sign_a $end
+$var wire 32 / result [31:0] $end
+$var wire 24 0 frac_b [23:0] $end
+$var wire 24 1 frac_a [23:0] $end
+$var wire 8 2 exp_b [7:0] $end
+$var wire 1 3 exp_a_gt_exp_b $end
+$var wire 8 4 exp_a [7:0] $end
+$var parameter 32 5 double $end
+$var parameter 32 6 exponent $end
+$var parameter 32 7 mantissa $end
+$var parameter 32 8 size $end
+$var reg 25 9 aligned_frac_a [24:0] $end
+$var reg 25 : aligned_frac_b [24:0] $end
+$var reg 25 ; diff_mantissa [24:0] $end
+$var reg 8 < exp_diff [7:0] $end
+$var reg 1 = found $end
+$var reg 8 > new_exp [7:0] $end
+$var reg 1 ? new_sign_bit $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 @ i [31:0] $end
+$upscope $end
+$upscope $end
+$scope module real_inst $end
+$var wire 32 A a [31:0] $end
+$var wire 32 B b [31:0] $end
+$var wire 1 C sign_b $end
+$var wire 1 D sign_a $end
+$var wire 32 E result [31:0] $end
+$var wire 24 F frac_b [23:0] $end
+$var wire 24 G frac_a [23:0] $end
+$var wire 8 H exp_b [7:0] $end
+$var wire 1 I exp_a_gt_exp_b $end
+$var wire 8 J exp_a [7:0] $end
+$var parameter 32 K double $end
+$var parameter 32 L exponent $end
+$var parameter 32 M mantissa $end
+$var parameter 32 N size $end
+$var reg 25 O aligned_frac_a [24:0] $end
+$var reg 25 P aligned_frac_b [24:0] $end
+$var reg 25 Q diff_mantissa [24:0] $end
+$var reg 8 R exp_diff [7:0] $end
+$var reg 1 S found $end
+$var reg 8 T new_exp [7:0] $end
+$var reg 1 U new_sign_bit $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 V i [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b100000 N
+b10111 M
+b1000 L
+b0 K
+b100000 8
+b10111 7
+b1000 6
+b0 5
+b100000 *
+b0 )
+$end
+#0
+$dumpvars
+bx V
+xU
+bx T
+xS
+bx R
+bx Q
+bx P
+bx O
+bx J
+xI
+bx H
+bx G
+bx F
+bx E
+xD
+xC
+bx B
+bx A
+bx @
+x?
+bx >
+x=
+bx <
+bx ;
+bx :
+bx 9
+bx 4
+x3
+bx 2
+bx 1
+bx 0
+bx /
+x.
+x-
+bx ,
+bx +
+bx (
+bx '
+bx &
+bx %
+bx $
+bx #
+bx "
+bx !
+$end
+#5000
+0S
+b110011001100110011001101 Q
+0=
+b110011001100110011001101 ;
+b110011001100110011001101 F
+b110011001100110011001101 0
+b1111100 T
+b111110010011001100110011001101 '
+b111110010011001100110011001101 E
+0U
+b110011001100110011001101 P
+b110011001100110011001101 O
+b0 R
+b110011001100110011001101 G
+b1111100 >
+b11111001001100110011001100110100111110010011001100110011001101 !
+b11111001001100110011001100110100111110010011001100110011001101 &
+b111110010011001100110011001101 (
+b111110010011001100110011001101 /
+0?
+b110011001100110011001101 :
+b110011001100110011001101 9
+b0 <
+b110011001100110011001101 1
+0C
+0I
+b1111011 H
+0-
+03
+b1111011 2
+0D
+b1111011 J
+0.
+b1111011 4
+b111101110011001100110011001101 B
+b111101110011001100110011001101 ,
+b111101110011001100110011001101 A
+b111101110011001100110011001101 +
+b11110111001100110011001100110100111101110011001100110011001101 #
+b11110111001100110011001100110100111101110011001100110011001101 %
+b11110111001100110011001100110100111101110011001100110011001101 "
+b11110111001100110011001100110100111101110011001100110011001101 $
+#15000

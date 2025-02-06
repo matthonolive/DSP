@@ -14,13 +14,13 @@ module comp_add #(parameter
   wire [size-1:0] r;
   wire [size-1:0] q;
 
-  fpu_add #(.double(double)) real (
+  fpu_add #(.double(double)) real_inst (
         .a(a[2*size-1:size]),
         .b(b[2*size-1:size]),
         .result(r)
       );
 
-  fpu_add #(.double(double)) complex (
+  fpu_add #(.double(double)) complex_inst (
         .a(a[size-1:0]),
         .b(b[size-1:0]),
         .result(q)
