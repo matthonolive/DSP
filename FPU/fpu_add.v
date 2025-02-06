@@ -3,14 +3,11 @@ module fpu_add #(parameter
 )(
   a,
   b,
-  result,
-  exception
+  result
 );
   localparam  size = (double == 0 ? 32 : 64);
   localparam exponent = (double == 0 ? 8: 11);
   localparam mantissa = (double == 0 ? 23 : 52);
-  input exception;
-
   input [size-1:0] a;
   input [size-1:0] b;
 
