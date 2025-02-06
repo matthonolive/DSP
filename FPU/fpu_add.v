@@ -8,6 +8,7 @@ module fpu_add #(parameter
   localparam  size = (double == 0 ? 32 : 64);
   localparam exponent = (double == 0 ? 8: 11);
   localparam mantissa = (double == 0 ? 23 : 52);
+
   input [size-1:0] a;
   input [size-1:0] b;
 
@@ -27,8 +28,8 @@ module fpu_add #(parameter
   assign exp_a = a[size-2:size-2-exponent + 1];
   assign exp_b = b[size-2:size-2-exponent + 1];
 
-  assign frac_a = ((exp_a == 0) && (frac_a == 0)) ? {1'b0, a[size-2-exponent:0]} : {1'b1, a[size-2-exponent:0]};
-  assign frac_b = ((exp_b == 0) && (frac_b == 0)) ? {1'b0, b[size-2-exponent:0]} : {1'b1, b[size-2-exponent:0]};
+  assign frac_a = ((exp_a == 0) && (a[size-2-exponent:0] == 0)) ? {1'b0, a[size-2-exponent:0]} : {1'b1, a[size-2-exponent:0]};
+  assign frac_b = ((exp_b == 0) && (b[size-2-exponent:0] == 0)) ? {1'b0, b[size-2-exponent:0]} : {1'b1, b[size-2-exponent:0]};
 
   reg [exponent - 1:0] exp_diff;
   reg [mantissa + 1: 0] aligned_frac_a;
@@ -65,7 +66,7 @@ module fpu_add #(parameter
           diff_mantissa = diff_mantissa >> 1;
           new_exp = new_exp + 1;
         end else begin
-          for (integer i = 0; i < mantissa; i = i + 1) begin
+          for (integer i = 0; i <= mantissa; i = i + 1) begin
             if (~found) begin
               if (diff_mantissa[mantissa]) begin
                 found = 1;
