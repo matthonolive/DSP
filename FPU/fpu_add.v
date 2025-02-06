@@ -28,8 +28,8 @@ module fpu_add #(parameter
   assign exp_a = a[size-2:size-2-exponent + 1];
   assign exp_b = b[size-2:size-2-exponent + 1];
 
-  assign frac_a = ((exp_a == 0) && (a[size-2-exponent:0] == 0)) ? {1'b0, a[size-2-exponent:0]} : {1'b1, a[size-2-exponent:0]};
-  assign frac_b = ((exp_b == 0) && (b[size-2-exponent:0] == 0)) ? {1'b0, b[size-2-exponent:0]} : {1'b1, b[size-2-exponent:0]};
+  assign frac_a = ((exp_a == 0)) ? {1'b0, a[size-2-exponent:0]} : {1'b1, a[size-2-exponent:0]};
+  assign frac_b = ((exp_b == 0)) ? {1'b0, b[size-2-exponent:0]} : {1'b1, b[size-2-exponent:0]};
 
   reg [exponent - 1:0] exp_diff;
   reg [mantissa + 1: 0] aligned_frac_a;
